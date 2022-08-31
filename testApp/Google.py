@@ -6,10 +6,11 @@ from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from google.auth.transport.requests import Request
+import datetime
 
 
 def Create_Service(client_secret_file, api_name, api_version, *scopes):
-    print(client_secret_file, api_name, api_version, scopes, sep='-')
+    #print(client_secret_file, api_name, api_version, scopes, sep='-')
     CLIENT_SECRET_FILE = client_secret_file
     API_SERVICE_NAME = api_name
     API_VERSION = api_version
@@ -17,7 +18,9 @@ def Create_Service(client_secret_file, api_name, api_version, *scopes):
 
     cred = None
 
-    pickle_file = f'token_{API_SERVICE_NAME}_{API_VERSION}.pickle'
+    #pickle_file = f'token_{API_SERVICE_NAME}_{API_VERSION}.pickle'
+    pickle_file = 'token_photoslibrary_photoslibrary.pickle'
+
     # print(pickle_file)
 
     if os.path.exists(pickle_file):
@@ -37,7 +40,7 @@ def Create_Service(client_secret_file, api_name, api_version, *scopes):
 
     try:
         service = build(API_SERVICE_NAME, API_VERSION, credentials=cred)
-        print(API_SERVICE_NAME, 'service created successfully')
+        print(service)
         return service
     except Exception as e:
         print(e)

@@ -12,3 +12,5 @@ SCOPES = [
 ]
 
 service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_NAME, SCOPES)
+
+print(dir(service))
