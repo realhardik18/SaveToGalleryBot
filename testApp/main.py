@@ -13,4 +13,5 @@ SCOPES = [
 
 service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
-print(service.mediaItems)
+print(service.albums().list().to_json())
+# work from here
