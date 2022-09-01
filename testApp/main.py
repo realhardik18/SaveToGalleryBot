@@ -11,6 +11,6 @@ SCOPES = [
 
 ]
 
-service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_NAME, SCOPES)
+service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
-print(dir(service))
+print(service.mediaItems)

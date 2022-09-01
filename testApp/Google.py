@@ -18,8 +18,8 @@ def Create_Service(client_secret_file, api_name, api_version, *scopes):
 
     cred = None
 
-    #pickle_file = f'token_{API_SERVICE_NAME}_{API_VERSION}.pickle'
-    pickle_file = 'token_photoslibrary_photoslibrary.pickle'
+    pickle_file = f'token_{API_SERVICE_NAME}_{API_VERSION}.pickle'
+    #pickle_file = 'token_photoslibrary_photoslibrary.pickle'
 
     # print(pickle_file)
 
@@ -39,7 +39,8 @@ def Create_Service(client_secret_file, api_name, api_version, *scopes):
             pickle.dump(cred, token)
 
     try:
-        service = build(API_SERVICE_NAME, API_VERSION, credentials=cred)
+        service = build(API_SERVICE_NAME, API_VERSION,
+                        credentials=cred, static_discovery=False)
         print(service)
         return service
     except Exception as e:
